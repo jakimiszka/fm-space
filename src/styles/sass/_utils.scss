@@ -1,0 +1,17 @@
+$breakpoints: (
+  'small': 480px,   // -> em's / 16px = 30em
+  'medium': 820px,  // -> em's / 16px = 51.25em
+  'large': 1024px // -> em's / 16px = 64em
+);
+
+@use 'sass:map' as map;
+
+@mixin breakpoint($name) {
+  @if map.has-key($breakpoints, $name) {
+    @media (min-width: map.get($breakpoints, $name)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$name}' not found in \$breakpoints.";
+  }
+}

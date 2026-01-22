@@ -1,0 +1,18 @@
+@use './utils' as u;
+@use './variables' as v;
+
+.container{
+    position: relative;
+    width: 100%;
+    min-width: 360px;
+    min-height: 100vh;
+    max-width: 450px;
+
+    @include u.breakpoint('medium'){
+        max-width: 820px;
+    }
+
+    @include u.breakpoint('large'){
+        max-width: 1440px;
+    }
+}

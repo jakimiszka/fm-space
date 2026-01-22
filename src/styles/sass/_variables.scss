@@ -1,0 +1,187 @@
+$white: white;
+$black: black;
+
+$blue-950: hsl(229, 31%, 21%);
+$blue-800: hsl(231, 69%, 46%);
+$blue-700: hsl(231, 69%, 53%);
+$blue-600: hsl(231, 69%, 60%);
+
+$grey-800: hsl(229, 8%, 25%);
+$grey-700: hsl(229, 8%, 31%);
+$grey-600: hsl(228, 12%, 41%);
+$grey-650: hsl(0, 0%, 94%);
+$grey-500: hsl(0, 27%, 98%);
+$grey-400: hsl(0, 1%, 72%);
+
+$red-400: hsl(0, 94%, 66%);
+$gradient: linear-gradient(to bottom, white, #737373);
+
+$font-size-1: 72px;
+$font-size-2: 48px;
+$font-size-3: 40px;
+$font-size-4: 32px;
+$font-size-4-5: 30px;
+$font-size-5: 24px;
+$font-size-6: 20px;
+$font-size-7: 18px;
+$font-size-8: 16px;
+$font-size-9: 15px;
+$font-size-10: 14px;
+$font-size-11: 13px;
+$font-size-12: 12px;  
+$font-size-13: 11px;
+$font-size-14: 10px;
+
+
+$spacing-0: 0px;
+$spacing-100: 8px;
+$spacing-200: 16px;
+$spacing-300: 24px;
+$spacing-400: 32px;
+$spacing-500: 40px;
+$spacing-600: 48px;
+$spacing-700: 56px;
+$spacing-800: 64px;
+$spacing-1000: 80px;
+
+$line-height-1: 90%;
+$line-height-2: 100%;
+$line-height-3: 110%;
+$line-height-4: 120%;
+$line-height-4-5: 135%;
+$line-height-5: 140%;
+$line-height-5-5: 145%;
+$line-height-6: 150%;
+$line-height-6-5: 155%;  
+
+$letter-spacing-0: 0px;
+$letter-spacing-1: -2px;
+$letter-spacing-2: 7px;
+$letter-spacing-3: -0.7px;
+$letter-spacing-4: -0.5px;
+$letter-spacing-5: 12.5px;
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+
+$font-family-rubik: 'Rubik', sans-serif;
+
+
+@mixin text-preset-1 {
+  font-family: $font-family-rubik;
+  font-size: $font-size-2;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-3;
+  letter-spacing: $letter-spacing-0;
+}
+@mixin text-preset-2 {
+  font-family: $font-family-rubik;
+  font-size: $font-size-4-5;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-2;
+  letter-spacing: -0.1px;
+}
+@mixin text-preset-3 {
+  font-family: $font-family-rubik;
+  font-size: $font-size-6;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-4;
+  letter-spacing: 0.25px;
+}
+@mixin text-preset-4 {
+  font-family: $font-family-rubik;
+  font-size: $font-size-7;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-6-5;
+  letter-spacing: 0px;
+}
+@mixin text-preset-5-light {
+  font-family: $font-family-rubik;
+  font-size: $font-size-8;
+  font-weight: $font-weight-light;
+  line-height: 225%;
+  letter-spacing: 0.5px;
+}
+@mixin text-preset-5-regular {
+  font-family: $font-family-rubik;
+  font-size: $font-size-8;
+  font-weight: $font-weight-regular;
+  line-height: 110%;
+  letter-spacing: 0.5px;
+}
+@mixin text-preset-6-medium {
+  font-family: $font-family-rubik;
+  font-size: $font-size-10;
+  font-weight: $font-weight-medium;
+  line-height: 200%;
+  letter-spacing: 0.25px;
+}
+@mixin text-preset-6-regular {
+  font-family: $font-family-rubik;
+  font-size: $font-size-10;
+  font-weight: $font-weight-regular;
+  line-height: 200%;
+  letter-spacing: 0.25px;
+}
+@mixin text-preset-6-semibold {
+  font-family: $font-family-rubik;
+  font-size: $font-size-10;
+  font-weight: $font-weight-semibold;
+  line-height: 300%;
+  letter-spacing: 5px;
+}
+@mixin text-preset-7 {
+  font-family: $font-family-rubik;
+  font-size: $font-size-14;
+  font-weight: $font-weight-medium;
+  line-height: 120%;
+  letter-spacing: 0.25px;
+  font-style: italic;
+}
+
+//MOBILE
+@mixin mobile-text-preset-1 {
+  font-family: $font-family-rubik;
+  font-size: $font-size-4-5;
+  font-weight: $font-weight-medium;
+  line-height: 135%;
+  letter-spacing: 0px;
+}
+@mixin mobile-text-preset-2-medium {
+  font-family: $font-family-rubik;
+  font-size: $font-size-9;
+  font-weight: $font-weight-medium;
+  line-height: 200%;
+  letter-spacing: 0px;
+}
+@mixin mobile-text-preset-2-regular {
+  font-family: $font-family-rubik;
+  font-size: $font-size-9;
+  font-weight: $font-weight-regular;
+  line-height: 165%;
+  letter-spacing: 0px;
+}
+@mixin mobile-text-preset-2-light {
+  font-family: $font-family-rubik;
+  font-size: $font-size-9;
+  font-weight: $font-weight-light;
+  line-height: 200%;
+  letter-spacing: 0px;
+}
+@mixin mobile-text-preset-3 {
+  font-family: $font-family-rubik;
+  font-size: 12px;
+  font-weight: $font-weight-medium;
+  line-height: 300%;
+  letter-spacing: 5px;
+}
+@mixin mobile-text-preset-4 {
+  font-family: $font-family-rubik;
+  font-size: 10px;
+  font-weight: $font-weight-medium;
+  line-height: 120%;
+  letter-spacing: 0.25px;
+  font-style: italic;
+}
