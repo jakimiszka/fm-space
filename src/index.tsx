@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client';
-import { Container } from './components/Container';
+import { Container } from './components/container';
 import './styles/styles.scss';
 
 const rootElement = document.getElementById('root');

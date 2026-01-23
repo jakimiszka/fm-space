@@ -31,15 +31,38 @@ module.exports = {
                 type: 'asset/inline',
             },
             {
+                test: /\.module\.s[ac]ss$/i,
+                use: [
+                    "style-loader",
+                    {
+                        loader: "css-loader",
+                        options: {
+                            modules: {
+                                localIdentName: '[name]__[local]--[hash:base64:5]',
+                                exportLocalsConvention: 'camelCase',
+                            },
+                            esModule: false,
+                            importLoaders: 1,
+                        },
+                    },
+                    "sass-loader",
+                ],
+            },
+            // Regular SCSS files (without .module.scss)
+            {
                 test: /\.s[ac]ss$/i,
                 exclude: /\.module\.s[ac]ss$/i,
                 use: [
-                // Creates `style` nodes from JS strings
-                "style-loader",
-                // Translates CSS into CommonJS
-                "css-loader",
-                // Compiles Sass to CSS
-                "sass-loader",
+                    "style-loader",
+                    "css-loader",
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            sassOptions: {
+                                includePaths: [path.resolve(__dirname, '..', 'src')],
+                            },
+                        },
+                    },
                 ],
             },
         ],
