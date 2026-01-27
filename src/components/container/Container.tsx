@@ -1,11 +1,12 @@
+import { Navigation } from '../naviagtion';
 import styles from './Container.module.scss';
 
-export const Container = () => {
-    console.log('styles:', styles);
-    
+export const Container = () => {    
+
     return (
         <div className={styles.container}>
-            <h1>hello</h1>
+            <Navigation type="primary" navItems={['HOME', 'DESTINATION', 'CREW', 'TECHNOLOGY']}/>
+            <Navigation type="secondary" navItems={['MOON', 'MARS', 'EUROPA', 'TITAN']}/>
         </div>
     );
 }
