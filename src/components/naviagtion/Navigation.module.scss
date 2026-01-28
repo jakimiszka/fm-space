@@ -1,33 +1,187 @@
 @use '../../styles/sass/variables' as v;
+@use '../../styles/sass/utils' as u;
 
 .navigation{
     position: relative;
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     top: 0;
     left: 0;
     width: 100%;
     color: white;
+    padding: v.$spacing-400 v.$spacing-800;
 
-    ul{
-        list-style: none;
+    @include u.breakpoint('medium'){
         padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: flex-end;
-        gap: 20px;
-        height: 100%;
+    }
 
-        li{
-            padding-top: 1rem;
-            padding-right: 1rem;
+    @include u.breakpoint('large'){
+        padding: v.$spacing-400 v.$spacing-800;
+    }
+
+    &--logo{
+        img{
+            width: 48px;
+            height: 48px;
+        }
+
+        @include u.breakpoint('medium'){
+            flex: 1;
+            text-align: center;
+        }
+    }
+
+    &--lane{
+        display: none;
+        flex-grow: 1;
+        align-self: center;
+        margin-inline: 2rem;
+
+        @include u.breakpoint('large'){
+            display: block;
+        }
+
+        hr{
+            border: none;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+    }
+
+    &--menu{
+        display: none;
+        flex-direction: row;
+        align-items: center;
+        flex: 1;
+        gap: 2rem;
+        padding-inline: 4rem;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+
+        @include u.breakpoint('medium'){
+            display: flex;
+            padding: 0;
+            flex: none;
+            width: 80%;
+            justify-content: center;
+        }
+
+        @include u.breakpoint('large'){
+            display: flex;
+            flex: 1;
+            padding-inline: 4rem;
+        }
+    
+        &__item{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: .5rem;
+            padding-inline: 1rem;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid transparent;
+            transition: border-bottom 0.3s ease-in-out;
             @include v.text-preset-7;
-            
+
+            @include u.breakpoint('medium'){
+                font-size: clamp(14px, 1.2vw, 18px);
+                padding-inline: 0.5rem;
+                gap: 0.25rem;
+            }
+
+            @include u.breakpoint('large'){
+                font-size: 20px;
+                padding-inline: 1rem;
+                gap: .5rem;
+            }
+
+            &:hover{
+                border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+            }
+
             span{       
                 text-decoration: none;
                 color: white;
                 font-weight: bold;
                 padding-right: .5rem;
             }
+
+            p{
+                text-decoration: none;
+                color: white;
+                text-transform: uppercase;
+                font-weight: v.$font-weight-light;
+            }
         }
     }
+
+    &--mobileMenu{
+        display: block;
+        z-index: 1100;
+
+        @include u.breakpoint('medium'){
+            display: none;
+        }
+    }
+}
+
+.mobileMenuActive{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    z-index: 1000;
+
+    @include u.breakpoint('medium'){
+        display: none;
+    }
+
+    .navigation--menu{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding: 0;
+        background-color: transparent;
+        width: auto;
+        height: auto;
+    }
+
+    .navigation--menu__item{
+        padding: 1rem 2rem;
+        font-size: 24px;
+
+        span{
+            padding-right: 1rem;
+        }
+    }
+}
+
+.active {
+    border-bottom: 3px solid white !important;
+}
+.lastActive {
+    border-bottom: 3px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.lastActvie{
+    border-bottom: 3px solid white;
+    opacity: .8;
+}
+
+.currentActive{
+    border-bottom: 3px solid white;
+    opacity: 1;
 }
