@@ -13,7 +13,10 @@ export const Home = () => {
                     because we’ll give you a truly out of this world experience!
                 </p>
             </div>
-            <button>Explore</button>
+            <div className={styles['home--btnWrapper']}>
+                <button>Explore</button>
+            </div>
+            
         </div>
     );
 }   

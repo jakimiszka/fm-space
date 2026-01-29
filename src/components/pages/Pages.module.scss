@@ -15,69 +15,74 @@
     }
     @include u.breakpoint('large'){
         flex-direction: row;
-        justify-content: space-around;
-        gap: v.$spacing-1400;
         margin-top: v.$spacing-1600;
     }
 
     &--content{
+        width: 50%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    }
 
-    h3{
-        @include v.text-preset-4;
-    }
-    h1{
-        @include v.text-preset-1;
-        margin: v.$spacing-400 0;
-        text-transform: uppercase;
-    }
-    p{
-        @include v.text-preset-9;
-        text-align: center;
-        max-width: 450px;
-
-        @include u.breakpoint('medium'){
-            max-width: 572px;
+        h3{
+            @include v.text-preset-4;
         }
-        @include u.breakpoint('large'){
-            max-width: 444px;
+        h1{
+            @include v.text-preset-1;
+            margin: v.$spacing-400 0;
+            text-transform: uppercase;
+        }
+        p{
+            @include v.text-preset-9;
+            text-align: center;
+            max-width: 450px;
+
+            @include u.breakpoint('medium'){
+                max-width: 572px;
+            }
+            @include u.breakpoint('large'){
+                max-width: 444px;
+            }
         }
     }
 
-    button{
-        margin-top: v.$spacing-1000;
-        width: 250px;
-        height: 250px;
-        border-radius: 50%;
-        background-color: white;
-        color: black;
-        font-family: v.$font-family-bellefair;
-        font-size: 32px;
-        font-weight: v.$font-weight-regular;
-        text-transform: uppercase;
-        border: none;
-        cursor: pointer;
-
-        // TODO
-        @include u.breakpoint('medium'){
-            width: 242px;
-            height: 242px;
+    &--btnWrapper{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        button{
+            margin-top: v.$spacing-1000;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background-color: white;
+            color: black;
+            font-family: v.$font-family-bellefair;
             font-size: 32px;
-        }
-        // TODO
-        @include u.breakpoint('medium'){
-            width: 242px;
-            height: 242px;
-            font-size: 32px;
-        }
+            font-weight: v.$font-weight-regular;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
 
-        &:hover{
-            box-shadow: 0 0 0 40px rgba(255, 255, 255, 0.1);
-            transition: box-shadow 0.5s ease-in-out;
+            // TODO
+            @include u.breakpoint('medium'){
+                width: 242px;
+                height: 242px;
+                font-size: 32px;
+            }
+            // TODO
+            @include u.breakpoint('medium'){
+                width: 242px;
+                height: 242px;
+                font-size: 32px;
+            }
+
+            &:hover{
+                box-shadow: 0 0 0 40px rgba(255, 255, 255, 0.1);
+                transition: box-shadow 0.5s ease-in-out;
+            }
         }
     }
 }
