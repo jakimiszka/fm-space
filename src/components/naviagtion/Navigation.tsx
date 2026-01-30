@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 
 interface NavigationProps {
     navItems?: string[];
+    onRouteChange?: (path: string) => void;
 }
 
 export const Navigation = (props: NavigationProps) => {
@@ -65,7 +66,12 @@ export const Navigation = (props: NavigationProps) => {
             </div>
             <div className={styles[isMobileMenuOpen ? 'mobileMenuActive' : 'navigation--menu']}>
                 {props.navItems?.map((item, index) => (
-                    <Link to={getItemPath(item)} key={index}>
+                    <Link to={getItemPath(item)} key={index} onClick={() => {
+                        props.onRouteChange && props.onRouteChange(getItemPath(item));
+                        if (isMobileMenuOpen) {
+                            setIsMobileMenuOpen(false);
+                        }
+                    }}>
                         <div className={getItemClass(item)}>
                             <span>{`0${index}`}</span><p>{` ${item}`}</p>
                         </div>
