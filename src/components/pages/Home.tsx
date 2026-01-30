@@ -4,8 +4,7 @@ export const Home = () => {
     return (
         <div className={styles.home}>
             <div className={styles['home--content']}>
-                <p>SO, YOU WANT TO TRAVEL TO</p>
-                <h3>So, you want to travel to</h3>
+                <p className={styles['home--content__title']}>SO, YOU WANT TO TRAVEL TO</p>
                 <h1>Space</h1>
                 <p>
                     Let’s face it; if you want to go to space, you might as well genuinely go to 
