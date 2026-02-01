@@ -20,7 +20,23 @@ interface DestinationProps {
 
 export const Destination = ({ data }: DestinationProps) => {
 
-    const [currentImage, setCurrentImage] = useState<string>(moonImage);
+    const imageMap: { [key: string]: string } = {
+        'Moon': moonImage,
+        'Mars': marsImage,
+        'Europa': europaImage,
+        'Titan': titanImage
+    };
+    const [currentPlanet, setCurrentPlanet] = useState<{
+        name: string;
+        images: {
+            png: string;
+            webp: string;
+        };
+        description: string;
+        distance: string;
+        travel: string;
+    }>( data[0] );
+
     console.log(data);  
 
     return (
@@ -28,32 +44,30 @@ export const Destination = ({ data }: DestinationProps) => {
            {/* <h1>01 PICK YOUR DESTINATION</h1> */}
            <div className={styles['destination--content']}>
                 <ul>
-                    <li onClick={() => setCurrentImage(moonImage)}>MOON</li>
-                    <li onClick={() => setCurrentImage(marsImage)}>MARS</li>
-                    <li onClick={() => setCurrentImage(europaImage)}>EUROPA</li>
-                    <li onClick={() => setCurrentImage(titanImage)}>TITAN</li>
+                    <li onClick={() => { setCurrentPlanet(data[0]);}}>MOON</li>
+                    <li onClick={() => { setCurrentPlanet(data[1]);}}>MARS</li>
+                    <li onClick={() => { setCurrentPlanet(data[2]);}}>EUROPA</li>
+                    <li onClick={() => { setCurrentPlanet(data[3]);}}>TITAN</li>
                 </ul>
                 <div className={styles['destination--content__info']}>
-                    <h2>MOON</h2>
+                    <h2>{currentPlanet.name.toUpperCase()}</h2>
                     <p>
-                        See our planet as you’ve never seen it before. A perfect relaxing trip away to help 
-                        regain perspective and come back refreshed. While you’re there, take in some history 
-                        by visiting the Luna 2 and Apollo 11 landing sites.
+                        {currentPlanet.description}
                     </p>
                     <div className={styles['destination--content__stats']}>
                         <div>
                             <h3>AVG. DISTANCE</h3>
-                            <p>384,400 KM</p>
+                            <p>{currentPlanet.distance}</p>
                         </div>
                         <div>
                             <h3>EST. TRAVEL TIME</h3>
-                            <p>3 DAYS</p>
+                            <p>{currentPlanet.travel}</p>
                         </div>
                     </div>
                 </div>
            </div>
            <div className={styles['destination--imageWrapper']}>
-                <img src={currentImage} alt="Destination" />
+                <img src={imageMap[currentPlanet.name]} alt="Destination" />
            </div>
         </div>
     );

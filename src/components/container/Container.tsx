@@ -7,10 +7,8 @@ import { useState } from 'react';
 export const Container = () => {
     const [backgroundClass, setBackgroundClass] = useState<string>(styles['container--home']);
     const data = require('../../../data.json');
-    console.log(data);
 
     const setBackground = (path: string) => {
-        console.log(path);
         switch(path) {
             case '/':
                 return styles['container--home'];
@@ -36,8 +34,8 @@ export const Container = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/destination" element={<Destination data={data.destinations} />} />
-                <Route path="/crew" element={<Crew />} />
-                <Route path="/technology" element={<Technology />} />
+                <Route path="/crew" element={<Crew data={data.crew} />} />
+                <Route path="/technology" element={<Technology data={data.technology} />} />
             </Routes>
         </div>
     );
