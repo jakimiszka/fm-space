@@ -193,3 +193,33 @@
     border-bottom: 3px solid white;
     opacity: 1;
 }
+
+.title{
+    position: relative;
+    top: 2rem;
+    left: 2rem;
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    letter-spacing: 2.7px;
+
+    @include u.breakpoint('medium'){
+        top: 3rem;
+        left: 3rem;
+    }
+
+    @include u.breakpoint('large'){
+        top: 0;
+        left: 14rem;
+    }
+
+    h1{
+        font-weight: v.$font-weight-regular;
+        font-size: clamp(16px, 2vw, 28px);
+
+        span{
+            font-weight: v.$font-weight-semibold;
+            opacity: 0.25;
+            padding-right: 1rem;
+        }
+    }
+}

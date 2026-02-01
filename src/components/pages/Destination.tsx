@@ -37,17 +37,16 @@ export const Destination = ({ data }: DestinationProps) => {
         travel: string;
     }>( data[0] );
 
-    console.log(data);  
-
     return (
         <div className={styles.destination}>
            {/* <h1>01 PICK YOUR DESTINATION</h1> */}
            <div className={styles['destination--content']}>
                 <ul>
-                    <li onClick={() => { setCurrentPlanet(data[0]);}}>MOON</li>
-                    <li onClick={() => { setCurrentPlanet(data[1]);}}>MARS</li>
-                    <li onClick={() => { setCurrentPlanet(data[2]);}}>EUROPA</li>
-                    <li onClick={() => { setCurrentPlanet(data[3]);}}>TITAN</li>
+                    {
+                        data.map(planet => (
+                            <li key={planet.name} onClick={() => { setCurrentPlanet(planet);}}>{planet.name.toUpperCase()}</li>
+                        ))
+                    }
                 </ul>
                 <div className={styles['destination--content__info']}>
                     <h2>{currentPlanet.name.toUpperCase()}</h2>
