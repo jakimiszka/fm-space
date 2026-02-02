@@ -1,0 +1,133 @@
+@use '../../../styles/sass/variables' as v;
+@use '../../../styles/sass/utils' as u;
+
+.technology{
+    width: 100%;
+    height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+
+    @include u.breakpoint('medium'){
+        
+    }
+    @include u.breakpoint('large'){
+
+    }
+
+    &--title{
+        display: block;
+        @include v.text-preset-4;
+
+        @include u.breakpoint('medium'){
+        }
+
+        @include u.breakpoint('large'){
+        }
+    }
+
+
+
+    &--content{
+        width: 70%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-inline: v.$spacing-200;
+
+        @include u.breakpoint('medium'){
+        
+        }
+        @include u.breakpoint('large'){
+            flex-direction: row;
+            margin-inline: auto;
+        }
+
+        &__info{
+            display: flex;
+            order: 1;
+            flex-direction: row;
+            flex: 1;
+            text-align: center;
+            justify-content: center;
+
+             @include u.breakpoint('large'){
+                flex: 1 1 50%;  
+                text-align: center;
+                justify-content: center;
+             }
+
+            &__details{
+                order: 2;
+                h2{
+                    @include v.text-preset-5;
+                    margin-bottom: v.$spacing-200;
+                }
+
+                h3{
+                    @include v.text-preset-3;
+                    margin-bottom: v.$spacing-400;
+                }
+
+                p{
+                    @include v.text-preset-6;
+                    color: v.$blue-300;
+                }
+            }
+
+            &__buttons{
+                display: flex;
+                flex-direction: column;
+                width: auto;
+                gap: v.$spacing-400;
+                margin-top: v.$spacing-600;
+
+                button{
+                    background: white;
+                    opacity: .8;
+                    border: none;
+                    color: white;
+                    font-size: 20px;
+                    cursor: pointer;
+                    border-radius: 50%;
+                    width: 50px;
+                    height: 50px;
+                    transition: transform 0.2s ease;
+
+                    &:hover{
+                        transform: scale(1.5);
+                        background: white;
+                        opacity: 1;
+                    }
+                }
+            }           
+        }
+
+        &__imageWrapper{
+            display: flex;
+            justify-content: center;
+            order: 2;
+            flex: 1;
+            margin-top: v.$spacing-600;
+
+            @include u.breakpoint('large'){
+                margin-top: 0;
+                flex: 1 1 50%;
+                justify-content: center;
+            }
+
+            img{
+
+                @include u.breakpoint('medium'){
+                    width: 40%;
+                }
+
+                @include u.breakpoint('large'){
+                    width: auto;
+                    height: 80%;
+                }
+            }
+        }
+    }
+}

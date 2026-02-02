@@ -1,4 +1,4 @@
-export { Crew } from "./Crew";
-export { Destination } from "./Destination";
-export { Technology } from "./Technology";
-export { Home } from "./Home";
+export { Crew } from "./crew/Crew";
+export { Destination } from "./destination/Destination";
+export { Technology } from "./technology/Technology";
+export { Home } from "./home/Home";

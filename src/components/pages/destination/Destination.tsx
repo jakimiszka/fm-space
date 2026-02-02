@@ -1,8 +1,8 @@
-import styles from './Pages.module.scss';
-import moonImage from '../../assets/destination/image-moon.png';
-import europaImage from '../../assets/destination/image-europa.png';
-import marsImage from '../../assets/destination/image-mars.png';
-import titanImage from '../../assets/destination/image-titan.png';
+import styles from './Destination.module.scss';
+import moonImage from '../../../assets/destination/image-moon.png';
+import europaImage from '../../../assets/destination/image-europa.png';
+import marsImage from '../../../assets/destination/image-mars.png';
+import titanImage from '../../../assets/destination/image-titan.png';
 import { useState } from 'react';
 
 interface DestinationProps {
@@ -36,8 +36,6 @@ export const Destination = ({ data }: DestinationProps) => {
         distance: string;
         travel: string;
     }>( data[0] );
-
-    console.log(data);  
 
     return (
         <div className={styles.destination}>

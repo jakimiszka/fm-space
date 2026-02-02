@@ -1,0 +1,113 @@
+@use '../../../styles/sass/variables' as v;
+@use '../../../styles/sass/utils' as u;
+
+.home{
+    margin-top: v.$spacing-300;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    gap: 4rem;
+
+    @include u.breakpoint('large'){
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-end;
+        width: calc(100% - 24rem);
+        margin-inline: auto;
+        margin-bottom: 8rem;
+    }
+
+    &--content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        padding-inline: 2rem;
+
+        @include u.breakpoint('medium'){
+            width: 75%;
+            margin-inline: auto;
+        }
+
+        @include u.breakpoint('large'){
+            align-items: flex-start;
+            flex: 2;
+            text-align: left;
+            width: 100%;
+        }
+
+        &__title{
+            width: 100%;
+            @include v.text-preset-5;
+            align-items: flex-start;
+            text-align: center;
+        }
+        h1{
+            width: 100%;
+            @include v.text-preset-1;
+            text-transform: uppercase;
+            text-align: center;
+            align-items: flex-start;
+            font-size: clamp(80px, 15vw, 122px);
+            
+            @include u.breakpoint('large'){
+                font-size: clamp(100px, 10vw, 144px);
+                text-align: left;
+            }
+        }
+        p{
+            width: 100%;
+            @include v.text-preset-9;
+
+            @include u.breakpoint('medium'){
+                align-items: flex-start;
+                text-align: center;
+            }
+            @include u.breakpoint('large'){
+                max-width: 500px;
+                text-align: left;
+            }
+        }
+    }
+
+    &--btnWrapper{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        @include u.breakpoint('large'){
+            justify-content: flex-end;
+            align-items: center;
+            height: 80%;
+            flex: 1;
+        }
+
+        button{
+            margin-top: v.$spacing-1000;
+            width: clamp(200px, 20vw, 350px);
+            height: clamp(200px, 20vw, 350px);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: white;
+            color: black;
+            font-family: v.$font-family-bellefair;
+            font-size: clamp(20px, 2vw, 32px);
+            font-weight: v.$font-weight-regular;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+
+            &:hover{
+                box-shadow: 0 0 0 40px rgba(255, 255, 255, 0.1);
+                transition: box-shadow 0.5s ease-in-out;
+            }
+        }
+    }
+}
