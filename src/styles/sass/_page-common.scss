@@ -1,0 +1,76 @@
+@use './variables' as v;
+@use './utils' as u;
+
+// Common wrapper styling for Destination, Crew, and Technology pages
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+    h1 {
+        width: 80%;
+        margin-inline: auto;
+        @include v.text-preset-4;
+        color: v.$white;
+        text-transform: uppercase;
+
+        @include u.breakpoint('large') { 
+            width: 80%;
+            margin-inline: auto;
+            margin-top: 2rem;
+        }
+    }
+}
+
+// Common content section base styles
+%content-base {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+// Common page container
+%page-container {
+    width: 100%;
+    height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+// Common image wrapper styling
+%image-wrapper-base {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    
+    @include u.breakpoint('large') {
+        flex: 1 1 50%;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+// Common image sizing
+%image-base {
+    width: 170px;
+    height: auto;
+    object-fit: contain;
+
+    @include u.breakpoint('medium') {
+        width: 300px;
+    }
+    
+    @include u.breakpoint('large') {
+        // width: 445px;
+        // max-height: 445px;
+        // object-fit: contain;
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+    }
+}

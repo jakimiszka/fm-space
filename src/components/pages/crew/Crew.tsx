@@ -42,23 +42,27 @@ export const Crew = ({ data }: CrewProps) => {
     }
 
     return (
-        <div className={styles.crew}>
-            <div className={styles['crew--title']}>
-                <h1><span>02</span> MEET YOUR CREW</h1>
-            </div>
-            <div className={styles['crew--content']}>
-                <div className={styles['crew--content__info']}>
-                    <h2>{currentMember.role.toUpperCase()}</h2>
-                    <h3>{currentMember.name}</h3>
-                    <p>{currentMember.bio}</p>
-                    <div className={styles['crew--content__info__buttons']}>
-                        {data.map((member, index) => (
-                            <button key={index} onClick={() => onClickMember(index)}></button>
-                        ))}
-                    </div>
+        <div className={styles.wrapper}>
+            <div className={styles.crew}>
+                <div className={styles['crew--title']}>
+                    <h1><span>02</span> MEET YOUR CREW</h1>
                 </div>
-                <div className={styles['crew--content__imageWrapper']}>
-                    <img src={imageMap[currentMember.name]} alt={currentMember.name} />
+                <div className={styles['crew--content']}>
+                    <div className={styles['crew--content__info']}>
+                        <div className={styles['crew--content__info__wrapper']}>
+                            <h2>{currentMember.role.toUpperCase()}</h2>
+                            <h3>{currentMember.name}</h3>
+                            <p>{currentMember.bio}</p>
+                        </div>
+                        <div className={styles['crew--content__info__buttons']}>
+                            {data.map((member, index) => (
+                                <button key={index} onClick={() => onClickMember(index)}></button>
+                            ))}
+                        </div>
+                    </div>
+                    <div className={styles['crew--content__imageWrapper']}>
+                        <img src={imageMap[currentMember.name]} alt={currentMember.name} />
+                    </div>
                 </div>
             </div>
         </div>

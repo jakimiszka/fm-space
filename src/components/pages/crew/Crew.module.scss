@@ -1,9 +1,14 @@
 @use '../../../styles/sass/variables' as v;
 @use '../../../styles/sass/utils' as u;
+@use '../../../styles/sass/page-common' as common;
+
+.wrapper{
+    @extend .wrapper;
+}
 
 .crew{
     width: 100%;
-    height: 100vh;
+    flex: 1;
     color: white;
     display: flex;
     flex-direction: column;
@@ -29,7 +34,7 @@
 
 
     &--content{
-        width: 70%;
+        width: 80%;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -42,6 +47,7 @@
         @include u.breakpoint('large'){
             flex-direction: row;
             margin-inline: auto;
+            gap: 1rem;
         }
 
         &__info{
@@ -51,10 +57,40 @@
             text-align: center;
             justify-content: center;
 
+            &__wrapper{
+                display: flex;
+                flex-direction: column;
+                gap: v.$spacing-400;
+                margin-bottom: v.$spacing-600;
+
+                h2{
+                    @include v.text-preset-4;
+                    color: v.$white;
+                    opacity: .5;
+                    text-transform: uppercase;
+                }
+                h3{
+                    @include v.text-preset-3;
+                    color: v.$white;
+                    text-transform: uppercase;
+                }
+                p{
+                    @include v.text-preset-9;
+                    color: v.$blue-300;
+                }
+
+                @include u.breakpoint('large'){
+                    gap: v.$spacing-400;
+                    margin-bottom: v.$spacing-0;
+                }
+            }
+
              @include u.breakpoint('large'){
                 flex: 1 1 50%;  
-                text-align: center;
+                height: 100%;
+                text-align: left;
                 justify-content: center;
+                gap: 6rem;
              }
 
             &__buttons{
@@ -63,6 +99,12 @@
                 justify-content: center;
                 gap: v.$spacing-400;
                 margin-top: v.$spacing-600;
+
+                @include u.breakpoint('large'){
+                    justify-content: flex-start;
+                    align-items: flex-end;
+                    margin-top: 0;
+                }
 
                 button{
                     background: white;
@@ -86,27 +128,15 @@
         }
 
         &__imageWrapper{
-            display: flex;
-            justify-content: center;
-            flex: 1;
+            @extend %image-wrapper-base;
             margin-top: v.$spacing-600;
 
             @include u.breakpoint('large'){
                 margin-top: 0;
-                flex: 1 1 50%;
-                justify-content: center;
             }
 
             img{
-
-                @include u.breakpoint('medium'){
-                    width: 40%;
-                }
-
-                @include u.breakpoint('large'){
-                    width: auto;
-                    height: 80%;
-                }
+                @extend %image-base;
             }
         }
     }

@@ -38,35 +38,38 @@ export const Destination = ({ data }: DestinationProps) => {
     }>( data[0] );
 
     return (
-        <div className={styles.destination}>
-           {/* <h1>01 PICK YOUR DESTINATION</h1> */}
-           <div className={styles['destination--content']}>
-                <ul>
-                    <li onClick={() => { setCurrentPlanet(data[0]);}}>MOON</li>
-                    <li onClick={() => { setCurrentPlanet(data[1]);}}>MARS</li>
-                    <li onClick={() => { setCurrentPlanet(data[2]);}}>EUROPA</li>
-                    <li onClick={() => { setCurrentPlanet(data[3]);}}>TITAN</li>
-                </ul>
-                <div className={styles['destination--content__info']}>
-                    <h2>{currentPlanet.name.toUpperCase()}</h2>
-                    <p>
-                        {currentPlanet.description}
-                    </p>
-                    <div className={styles['destination--content__stats']}>
-                        <div>
-                            <h3>AVG. DISTANCE</h3>
-                            <p>{currentPlanet.distance}</p>
+        <div className={styles.wrapper}>
+            <h1>01 PICK YOUR DESTINATION</h1>
+            <div className={styles.destination}>
+                <div className={styles['destination--content']}>
+                        <ul>
+                            <li onClick={() => { setCurrentPlanet(data[0]);}}>MOON</li>
+                            <li onClick={() => { setCurrentPlanet(data[1]);}}>MARS</li>
+                            <li onClick={() => { setCurrentPlanet(data[2]);}}>EUROPA</li>
+                            <li onClick={() => { setCurrentPlanet(data[3]);}}>TITAN</li>
+                        </ul>
+                        <div className={styles['destination--content__info']}>
+                            <h2>{currentPlanet.name.toUpperCase()}</h2>
+                            <p>
+                                {currentPlanet.description}
+                            </p>
+                            <div className={styles['destination--content__stats']}>
+                                <div>
+                                    <h3>AVG. DISTANCE</h3>
+                                    <p>{currentPlanet.distance}</p>
+                                </div>
+                                <div>
+                                    <h3>EST. TRAVEL TIME</h3>
+                                    <p>{currentPlanet.travel}</p>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <h3>EST. TRAVEL TIME</h3>
-                            <p>{currentPlanet.travel}</p>
-                        </div>
-                    </div>
                 </div>
-           </div>
-           <div className={styles['destination--imageWrapper']}>
-                <img src={imageMap[currentPlanet.name]} alt="Destination" />
-           </div>
-        </div>
+                <div className={styles['destination--imageWrapper']}>
+                        <img src={imageMap[currentPlanet.name]} alt="Destination" />
+                </div>
+            </div>
+        </div>  
+        
     );
 }
