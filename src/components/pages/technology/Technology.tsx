@@ -20,16 +20,11 @@ interface TechnologyProps {
 export const Technology = ({ data }: TechnologyProps) => {
     return (
         <div className={styles.wrapper}>
-            <h1>03 SPACE LAUNCH 101</h1>
             <div className={styles.technology}>
+                <div className={styles['technology--title']}>
+                    <h1>03 SPACE LAUNCH 101</h1>
+                </div>
                 <div className={styles['technology--content']}>
-                    <div className={styles['technology--content__imageWrapper']}>
-                        <img 
-                            className={styles['technology--content__imageWrapper--portrait']} 
-                            src={imageLaunchPortrait} 
-                            alt="Launch Vehicle Portrait" 
-                        />
-                    </div>
                     <div className={styles['technology--content__info']}>
                         <div className={styles['technology--content__info__details']}>
                             <h2>THE TERMINOLOGY...</h2>
@@ -41,6 +36,13 @@ export const Technology = ({ data }: TechnologyProps) => {
                                 <button key={index}>{index + 1}</button>
                             ))}
                         </div>
+                    </div>
+                    <div className={styles['technology--content__imageWrapper']}>
+                        <img 
+                            className={styles['technology--content__imageWrapper--portrait']} 
+                            src={imageLaunchPortrait} 
+                            alt="Launch Vehicle Portrait" 
+                        />
                     </div>
                 </div>
             </div>

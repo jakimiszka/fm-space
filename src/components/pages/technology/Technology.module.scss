@@ -34,12 +34,12 @@
 
 
     &--content{
-        width: 70%;
-        height: auto;
+        width: 80%;
+        height: 100%;
+        margin-inline: auto;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
-        margin-inline: v.$spacing-200;
 
         @include u.breakpoint('medium'){
         
@@ -47,46 +47,67 @@
         @include u.breakpoint('large'){
             flex-direction: row;
             margin-inline: auto;
+            gap: 1rem;
         }
 
         &__info{
             display: flex;
-            order: 1;
             flex-direction: row;
             flex: 1;
             text-align: center;
             justify-content: center;
-
-             @include u.breakpoint('large'){
-                flex: 1 1 50%;  
-                text-align: center;
-                justify-content: center;
-             }
+            align-items: center;
 
             &__details{
+                display: flex;
+                flex-direction: column;
                 order: 2;
+                gap: v.$spacing-400;
+                margin-bottom: v.$spacing-600;
+
                 h2{
-                    @include v.text-preset-5;
-                    margin-bottom: v.$spacing-200;
+                    @include v.text-preset-4;
+                    color: v.$white;
+                    opacity: .5;
+                    text-transform: uppercase;
                 }
 
                 h3{
                     @include v.text-preset-3;
-                    margin-bottom: v.$spacing-400;
+                    color: v.$white;
+                    text-transform: uppercase;
                 }
 
                 p{
-                    @include v.text-preset-6;
+                    @include v.text-preset-9;
                     color: v.$blue-300;
                 }
+
+                @include u.breakpoint('large'){
+                    margin-bottom: v.$spacing-0;
+                }
             }
+
+             @include u.breakpoint('large'){
+                flex: 1 1 50%;  
+                height: 100%;
+                text-align: left;
+                justify-content: center;
+                gap: 6rem;
+             }
 
             &__buttons{
                 display: flex;
                 flex-direction: column;
-                width: auto;
+                align-items: center;
+                order: 1;
                 gap: v.$spacing-400;
-                margin-top: v.$spacing-600;
+                margin-top: 0;
+
+                @include u.breakpoint('large'){
+                    align-items: flex-start;
+                    margin-top: 0;
+                }
 
                 button{
                     background: white;
@@ -111,7 +132,6 @@
 
         &__imageWrapper{
             @extend %image-wrapper-base;
-            order: 2;
             margin-top: v.$spacing-600;
 
             @include u.breakpoint('large'){
