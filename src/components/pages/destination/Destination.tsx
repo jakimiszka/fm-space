@@ -43,10 +43,30 @@ export const Destination = ({ data }: DestinationProps) => {
             <div className={styles.destination}>
                 <div className={styles['destination--content']}>
                         <ul>
-                            <li onClick={() => { setCurrentPlanet(data[0]);}}>MOON</li>
-                            <li onClick={() => { setCurrentPlanet(data[1]);}}>MARS</li>
-                            <li onClick={() => { setCurrentPlanet(data[2]);}}>EUROPA</li>
-                            <li onClick={() => { setCurrentPlanet(data[3]);}}>TITAN</li>
+                            <li
+                                className={currentPlanet.name === 'Moon' ? styles.activeTab : ''}
+                                onClick={() => { setCurrentPlanet(data[0]);}}
+                            >
+                                MOON
+                            </li>
+                            <li
+                                className={currentPlanet.name === 'Mars' ? styles.activeTab : ''}
+                                onClick={() => { setCurrentPlanet(data[1]);}}
+                            >
+                                MARS
+                            </li>
+                            <li
+                                className={currentPlanet.name === 'Europa' ? styles.activeTab : ''}
+                                onClick={() => { setCurrentPlanet(data[2]);}}
+                            >
+                                EUROPA
+                            </li>
+                            <li
+                                className={currentPlanet.name === 'Titan' ? styles.activeTab : ''}
+                                onClick={() => { setCurrentPlanet(data[3]);}}
+                            >
+                                TITAN
+                            </li>
                         </ul>
                         <div className={styles['destination--content__info']}>
                             <h2>{currentPlanet.name.toUpperCase()}</h2>

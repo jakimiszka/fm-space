@@ -14,133 +14,166 @@
     flex-direction: column;
 
     @include u.breakpoint('medium'){
-        
-    }
-    @include u.breakpoint('large'){
-
+        width: 100%;
     }
 
     &--title{
         display: block;
-        @include v.text-preset-4;
-
-        @include u.breakpoint('medium'){
-        }
-
-        @include u.breakpoint('large'){
-        }
+        width: 90%;
+        margin-inline: auto;
     }
 
-
-
     &--content{
-        width: 80%;
-        height: 100%;
-        margin-inline: auto;
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
 
-        @include u.breakpoint('medium'){
-        
-        }
         @include u.breakpoint('large'){
-            flex-direction: row;
+            width: 90%;
             margin-inline: auto;
-            gap: 1rem;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: v.$spacing-800;
+        }
+
+        &__imageWrapper{
+            width: 100%;
+            margin-top: v.$spacing-500;
+            order: 1;
+
+            @include u.breakpoint('medium'){
+                margin-top: v.$spacing-600;
+            }
+
+            @include u.breakpoint('large'){
+                width: 45%;
+                margin-top: 0;
+                order: 2;
+            }
+
+            &--landscape{
+                display: block;
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+
+                @include u.breakpoint('large'){
+                    display: none;
+                }
+            }
+
+            &--portrait{
+                display: none;
+
+                @include u.breakpoint('large'){
+                    display: block;
+                    width: 100%;
+                    max-width: 515px;
+                    height: auto;
+                    object-fit: contain;
+                }
+            }
         }
 
         &__info{
+            width: 85%;
             display: flex;
-            flex-direction: row;
-            flex: 1;
-            text-align: center;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            text-align: center;
+            margin-top: v.$spacing-600;
+            order: 2;
+
+            @include u.breakpoint('large'){
+                width: 50%;
+                margin-top: 0;
+                order: 1;
+                flex-direction: row;
+                gap: v.$spacing-700;
+                align-items: center;
+                text-align: left;
+            }
+
+            &__buttons{
+                display: flex;
+                flex-direction: row;
+                gap: v.$spacing-400;
+                margin-bottom: v.$spacing-500;
+
+                @include u.breakpoint('large'){
+                    flex-direction: column;
+                    margin-bottom: 0;
+                }
+
+                button{
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    border: 1px solid rgba(255, 255, 255, 0.25);
+                    background: transparent;
+                    color: v.$white;
+                    cursor: pointer;
+
+                    @include u.breakpoint('medium'){
+                        width: 56px;
+                        height: 56px;
+                    }
+
+                    @include u.breakpoint('large'){
+                        width: 72px;
+                        height: 72px;
+                    }
+
+                    &:hover{
+                        border-color: v.$white;
+                    }
+                }
+            }
 
             &__details{
                 display: flex;
                 flex-direction: column;
-                order: 2;
-                gap: v.$spacing-400;
-                margin-bottom: v.$spacing-600;
+                align-items: center;
+                gap: v.$spacing-300;
+
+                @include u.breakpoint('large'){
+                    align-items: flex-start;
+                }
 
                 h2{
                     @include v.text-preset-4;
                     color: v.$white;
                     opacity: .5;
                     text-transform: uppercase;
+                    font-size: clamp(16px, 2.2vw, 32px);
                 }
 
                 h3{
                     @include v.text-preset-3;
                     color: v.$white;
                     text-transform: uppercase;
+                    font-size: clamp(32px, 7vw, 56px);
+                    line-height: 1;
                 }
 
                 p{
                     @include v.text-preset-9;
                     color: v.$blue-300;
-                }
+                    max-width: 540px;
 
-                @include u.breakpoint('large'){
-                    margin-bottom: v.$spacing-0;
-                }
-            }
-
-             @include u.breakpoint('large'){
-                flex: 1 1 50%;  
-                height: 100%;
-                text-align: left;
-                justify-content: center;
-                gap: 6rem;
-             }
-
-            &__buttons{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                order: 1;
-                gap: v.$spacing-400;
-                margin-top: 0;
-
-                @include u.breakpoint('large'){
-                    align-items: flex-start;
-                    margin-top: 0;
-                }
-
-                button{
-                    background: white;
-                    opacity: .8;
-                    border: none;
-                    color: white;
-                    font-size: 20px;
-                    cursor: pointer;
-                    border-radius: 50%;
-                    width: 50px;
-                    height: 50px;
-                    transition: transform 0.2s ease;
-
-                    &:hover{
-                        transform: scale(1.5);
-                        background: white;
-                        opacity: 1;
+                    @include u.breakpoint('large'){
+                        max-width: 490px;
                     }
                 }
-            }           
-        }
-
-        &__imageWrapper{
-            @extend %image-wrapper-base;
-            margin-top: v.$spacing-600;
-
-            @include u.breakpoint('large'){
-                margin-top: 0;
-            }
-
-            img{
-                @extend %image-base;
             }
         }
     }
+}
+
+.activeStep{
+    background: v.$white !important;
+    color: v.$black !important;
+    border-color: v.$white !important;
 }
