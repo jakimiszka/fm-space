@@ -4,10 +4,12 @@ import { BrowserRouter } from 'react-router-dom';
 import './styles/styles.scss';
 
 const rootElement = document.getElementById('root');
+const basename = process.env.NODE_ENV === 'production' ? '/fm-space' : '/';
+
 if (rootElement) {
     const root = ReactDOM.createRoot(rootElement);
     root.render(
-        <BrowserRouter>
+        <BrowserRouter basename={basename}>
             <Container />
         </BrowserRouter>
     );
